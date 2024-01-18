@@ -401,63 +401,78 @@ body{
   font-family: consolas;
 }
 
-.container_features{
+/*.container_features{
   width: 1000px;
   z-index: 9;
   position: relative;
   display: flex;
   justify-content: space-between;
   top: 571px;
-}
+}*/
 
-.container_features .card{
+.card{
   position: relative;
   cursor: pointer;
+  float: left;
+  padding: 0 10px;
+}
+.row {
+  
+  margin: 151px;
+  position: relative;
+  top: 863px;
 }
 
-.container_features .card .face{
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;}
+
+.card .face{
   width: 300px;
   height: 200px;
   transition: 0.5s;
 }
 
-.container_features .card .face.face1{
+.card .face.face1{
   position: relative;
-  background: #333;
+  background: #EAEAE2;
   display: flex;
+  color: #183D53;
   justify-content: center;
   align-items: center;
   z-index: 1;
   transform: translateY(100px);
 }
 
-.container_features .card:hover .face.face1{
-  background: #ff0057;
+.card:hover .face.face1{
+  background: #DD954C;
   transform: translateY(0);
 }
 
-.container_features .card .face.face1 .content{
+.card .face.face1 .content{
   opacity: 0.2;
   transition: 0.5s;
 }
 
-.container_features .card:hover .face.face1 .content{
+.card:hover .face.face1 .content{
   opacity: 1;
 }
 
-.container_features .card .face.face1 .content img{
+.card .face.face1 .content img{
   max-width: 100px;
 }
 
-.container_features .card .face.face1 .content h3{
+.card .face.face1 .content h3{
   margin: 10px 0 0;
   padding: 0;
-  color: #fff;
+  color: #183D53;
   text-align: center;
   font-size: 1.5em;
 }
 
-.container_features .card .face.face2{
+.card .face.face2{
   position: relative;
   background: #fff;
   display: flex;
@@ -469,16 +484,16 @@ body{
   transform: translateY(-100px);
 }
 
-.container_features .card:hover .face.face2{
+.card:hover .face.face2{
   transform: translateY(0);
 }
 
-.container_features .card .face.face2 .content p{
+.card .face.face2 .content p{
   margin: 0;
   padding: 0;
 }
 
-.container_features .card .face.face2 .content a{
+.card .face.face2 .content a{
   margin: 15px 0 0;
   display:  inline-block;
   text-decoration: none;
@@ -487,211 +502,22 @@ body{
   padding: 5px;
   border: 1px solid #333;
 }
+.card .face.face1 .img{
+height: 20px;
+width: 50px;
+}
 
-.container_features .card .face.face2 .content a:hover{
+.card .face.face2 .content a:hover{
   background: #333;
   color: #fff;
 }
 /*text above main image*/
-.absolute {
-  position: absolute;
+.featuretext
+{font-size: 63px;
+z-index: 100;
+position: relative;
+text-align: center;
+font-weight: bolder;
+color: #B06121;
+top: 1025px;
 }
-
-.inline-block {
-  display: inline-block;
-}
-
-.loader {
-  display: flex;
-  margin: 0.25em 0;
-  z-index: 7;
-}
-
-.w-2 {
-  width: 0.5em;
-}
-
-.dash {
-  animation: dashArray 2s ease-in-out infinite,
-    dashOffset 2s linear infinite;
-}
-
-.spin {
-  animation: spinDashArray 2s ease-in-out infinite,
-    spin 8s ease-in-out infinite,
-    dashOffset 2s linear infinite;
-  transform-origin: center;
-}
-
-@keyframes dashArray {
-  0% {
-    stroke-dasharray: 0 1 359 0;
-  }
-
-  50% {
-    stroke-dasharray: 0 359 1 0;
-  }
-
-  100% {
-    stroke-dasharray: 359 1 0 0;
-  }
-}
-
-@keyframes spinDashArray {
-  0% {
-    stroke-dasharray: 270 90;
-  }
-
-  50% {
-    stroke-dasharray: 0 360;
-  }
-
-  100% {
-    stroke-dasharray: 270 90;
-  }
-}
-
-@keyframes dashOffset {
-  0% {
-    stroke-dashoffset: 365;
-  }
-
-  100% {
-    stroke-dashoffset: 5;
-  }
-}
-
-@keyframes spin {
-  0% {
-    rotate: 0deg;
-  }
-
-  12.5%,
-  25% {
-    rotate: 270deg;
-  }
-
-  37.5%,
-  50% {
-    rotate: 540deg;
-  }
-
-  62.5%,
-  75% {
-    rotate: 810deg;
-  }
-
-  87.5%,
-  100% {
-    rotate: 1080deg;
-  }
-}
-
-.input__container {
-  position: relative;
-  background: rgba(255, 255, 255, 0.664);
-  padding: 10px 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  border-radius: 22px;
-  max-width: 300px;
-  transition: transform 400ms;
-  transform-style: preserve-3d;
-  transform: rotateX(15deg) rotateY(-20deg);
-  perspective: 500px;
-}
-
-.shadow__input {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  filter: blur(30px);
-  border-radius: 20px;
-  background-color: #999cff;
-  background-image: radial-gradient(at 85% 51%, hsla(60,60%,61%,1) 0px, transparent 50%),
-    radial-gradient(at 74% 68%, hsla(235,69%,77%,1) 0px, transparent 50%),
-    radial-gradient(at 64% 79%, hsla(284,72%,73%,1) 0px, transparent 50%),
-    radial-gradient(at 75% 16%, hsla(283,60%,72%,1) 0px, transparent 50%),
-    radial-gradient(at 90% 65%, hsla(153,70%,64%,1) 0px, transparent 50%),
-    radial-gradient(at 91% 83%, hsla(283,74%,69%,1) 0px, transparent 50%),
-    radial-gradient(at 72% 91%, hsla(213,75%,75%,1) 0px, transparent 50%);
-}
-
-.input__button__shadow {
-  cursor: pointer;
-  border: none;
-  background: none;
-  transition: transform 400ms, background 400ms;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  padding: 5px;
-}
-
-.input__button__shadow:hover {
-  background: rgba(255, 255, 255, 0.411);
-}
-
-.input__search {
-  width: 100%;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  padding: 8px;
-  position: relative;
-}
-
-
-
-
-
-
-.loader {
-  position: relative;
-   z-index: 2;
-   top: 30px;
-   font-size: larger;
-   overflow: hidden; /* Hide overflowing content */
-   white-space: nowrap;
-   position: relative;
-   overflow: hidden;
-   border-right: 3px solid;
-   width: 0px;
-   animation: typewriter 2s steps(10)  infinite alternate , blink 0.5s steps(10) infinite;
- }
- 
- .loader-text {
-   font-size: 40px;
-   font-weight: 700;
-   background: linear-gradient(to right,#159957, #155799);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
- }
- 
- @keyframes typewriter {
-   0% {
-     width: 0px;
-   }
- 
-   100% {
-     width: 240px;
-   }
- }
- 
- @keyframes blink {
-   0% {
-     border-right-color: rgba(255,255,255,.75);
-     ;
-   }
- 
-   100% {
-     border-right-color: transparent;
-   }
- }
