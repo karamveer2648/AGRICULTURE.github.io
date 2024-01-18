@@ -37,3 +37,17 @@ let jsArrow = document.querySelector(".js-arrow");
 jsArrow.onclick = function() {
  navLinks.classList.toggle("show3");
 }
+document.addEventListener("DOMContentLoaded", function () {
+  var navbar = document.getElementById("navbar");
+  var homeSection = document.getElementById("");
+
+  // Listen for scroll events
+  window.addEventListener("scroll", function () {
+    // Check if the user has scrolled past the home section
+    if (window.scrollY >= homeSection.offsetHeight) {
+      navbar.style.backgroundColor = "rgba(255, 255, 255, 1)"; // Solid background
+    } else {
+      navbar.style.backgroundColor = "rgba(255, 255, 255, 0.3)"; // Transparent background
+    }
+  });
+});

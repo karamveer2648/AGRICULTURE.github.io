@@ -21,7 +21,7 @@ nav {
     left: 0;
     width: 100%;
     height: 80px; /* Adjust the height as needed */
-    background: rgba(62, 141, 168, 0.8); /* Semi-transparent blue background */
+    background: transparent; /* Semi-transparent blue background */
     backdrop-filter: blur(10px); /* Apply a blur effect to the background */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     z-index: 99;
@@ -34,14 +34,27 @@ nav .navbar{
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  /* background: red; */
-  padding: 0 50px;
+  /* padding: 0 50px; */
+  border-bottom: 1px solid #183D53;
+}
+.navbar .logo img{
+  position: relative;
+  width: 150px;
+  height: 200px;
+  top: 37px;
+}
+.navbar .logotext img{
+  position: sticky;
+  width: 100px;
+  height: 75px;
+  top: 37px;
 }
 .navbar .logo a{
   font-size: 30px;
-  color: #fff;
+  color: #386157
   text-decoration: none;
   font-weight: 600;
+  display: flex;
 }
 nav .navbar .nav-links{
   line-height: 70px;
@@ -62,9 +75,15 @@ nav .navbar .links li a{
   height: 100%;
   text-decoration: none;
   white-space: nowrap;
-  color: #fff;
+  color: #183D53;
+ 
   font-size: 15px;
   font-weight: 500;
+}
+.links li:hover{
+  background: rgba(252, 250, 250, 0.2); /* Semi-transparent blue background */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  height: 200px;
 }
 .links li:hover .htmlcss-arrow,
 .links li:hover .js-arrow{
@@ -77,18 +96,19 @@ nav .navbar .links li .arrow{
   line-height: 70px;
   text-align: center;
   display: inline-block;
-  color: #fff;
+  color: #183D53;
   transition: all 0.3s ease;
 }
 nav .navbar .links li .sub-menu{
   position: absolute;
-  top: 70px;
+  top: 80px;
   left: 0;
   line-height: 40px;
-  background: #3E8DA8;
+  background: #EAEAE2;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 4px 4px;
   display: none;
+  border: 1px solid #183D53;
   z-index: 2;
 }
 nav .navbar .links li:hover .htmlCss-sub-menu,
@@ -100,7 +120,7 @@ nav .navbar .links li:hover .js-sub-menu{
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .navbar .links li .sub-menu a{
-  color: #fff;
+  color: #183D53;
   font-size: 15px;
   font-weight: 500;
 }
@@ -133,7 +153,7 @@ nav .navbar .links li:hover .js-sub-menu{
   line-height: 40px;
   text-align: center;
   font-size: 22px;
-  color: #fff;
+  color: #183D53;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -311,16 +331,16 @@ nav .navbar .links li .sub-menu li{
 
 /* Image styles */
 img {
-  position: fixed;
+  position: absolute;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  top: -195px;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; /* Set a z-index lower than the text container */
-  width: 200%;
-  height: auto; /* Adjusting height to maintain aspect ratio */
+  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 
 /* Container styles */
@@ -472,3 +492,206 @@ body{
   background: #333;
   color: #fff;
 }
+/*text above main image*/
+.absolute {
+  position: absolute;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.loader {
+  display: flex;
+  margin: 0.25em 0;
+  z-index: 7;
+}
+
+.w-2 {
+  width: 0.5em;
+}
+
+.dash {
+  animation: dashArray 2s ease-in-out infinite,
+    dashOffset 2s linear infinite;
+}
+
+.spin {
+  animation: spinDashArray 2s ease-in-out infinite,
+    spin 8s ease-in-out infinite,
+    dashOffset 2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes dashArray {
+  0% {
+    stroke-dasharray: 0 1 359 0;
+  }
+
+  50% {
+    stroke-dasharray: 0 359 1 0;
+  }
+
+  100% {
+    stroke-dasharray: 359 1 0 0;
+  }
+}
+
+@keyframes spinDashArray {
+  0% {
+    stroke-dasharray: 270 90;
+  }
+
+  50% {
+    stroke-dasharray: 0 360;
+  }
+
+  100% {
+    stroke-dasharray: 270 90;
+  }
+}
+
+@keyframes dashOffset {
+  0% {
+    stroke-dashoffset: 365;
+  }
+
+  100% {
+    stroke-dashoffset: 5;
+  }
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+
+  12.5%,
+  25% {
+    rotate: 270deg;
+  }
+
+  37.5%,
+  50% {
+    rotate: 540deg;
+  }
+
+  62.5%,
+  75% {
+    rotate: 810deg;
+  }
+
+  87.5%,
+  100% {
+    rotate: 1080deg;
+  }
+}
+
+.input__container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.664);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 22px;
+  max-width: 300px;
+  transition: transform 400ms;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg) rotateY(-20deg);
+  perspective: 500px;
+}
+
+.shadow__input {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: blur(30px);
+  border-radius: 20px;
+  background-color: #999cff;
+  background-image: radial-gradient(at 85% 51%, hsla(60,60%,61%,1) 0px, transparent 50%),
+    radial-gradient(at 74% 68%, hsla(235,69%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 64% 79%, hsla(284,72%,73%,1) 0px, transparent 50%),
+    radial-gradient(at 75% 16%, hsla(283,60%,72%,1) 0px, transparent 50%),
+    radial-gradient(at 90% 65%, hsla(153,70%,64%,1) 0px, transparent 50%),
+    radial-gradient(at 91% 83%, hsla(283,74%,69%,1) 0px, transparent 50%),
+    radial-gradient(at 72% 91%, hsla(213,75%,75%,1) 0px, transparent 50%);
+}
+
+.input__button__shadow {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform 400ms, background 400ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.input__button__shadow:hover {
+  background: rgba(255, 255, 255, 0.411);
+}
+
+.input__search {
+  width: 100%;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  padding: 8px;
+  position: relative;
+}
+
+
+
+
+
+
+.loader {
+  position: relative;
+   z-index: 2;
+   top: 30px;
+   font-size: larger;
+   overflow: hidden; /* Hide overflowing content */
+   white-space: nowrap;
+   position: relative;
+   overflow: hidden;
+   border-right: 3px solid;
+   width: 0px;
+   animation: typewriter 2s steps(10)  infinite alternate , blink 0.5s steps(10) infinite;
+ }
+ 
+ .loader-text {
+   font-size: 40px;
+   font-weight: 700;
+   background: linear-gradient(to right,#159957, #155799);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+ 
+ @keyframes typewriter {
+   0% {
+     width: 0px;
+   }
+ 
+   100% {
+     width: 240px;
+   }
+ }
+ 
+ @keyframes blink {
+   0% {
+     border-right-color: rgba(255,255,255,.75);
+     ;
+   }
+ 
+   100% {
+     border-right-color: transparent;
+   }
+ }
